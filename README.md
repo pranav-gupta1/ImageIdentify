@@ -1,0 +1,10 @@
+# ImageIdentify
+Technical files for the associated research paper.
+
+_Abstract_: Recent progress in Generative Artificial Intelligence (Al) technology has made it increasingly difficult to tell whether an image is Al-generated or real. This paper aims to determine if incorporating Convolutional Neural Networks (CNNs) and Fast Fourier Transform (FFT) can combat the vast negative effects of image tampering, some down the personal level. For example, financial markets dropped and investors lost money after artificial images claimed the Pentagon exploded. Methods solely relying on training a model through a CNN or using U-net architecture with Intersection-over-Union as an evaluation metric are well-known. However, these approaches are not accurate enough to scrape sufficient detail from spatial (traditional) and frequency domain features, missing out on discrete patterns in edges and textures. This paper presents a machine learning model that utilizes FFT to transform images from the spatial to the frequency domain where subtle features can be extracted. This process involved training the model on the CIFAKE dataset, comprised of 100,000 training images and 20,000 unseen testing images. Model development preprocessed images through FFT and merged CNN logic to achieve a 93.30% accuracy while handling both colored and grayscale inputs. Results demonstrated that the integrated approach versus only employing a CNN evidenced improvements including 10.06% lower loss, 3.27% higher accuracy, and increased true positive rate and F1-score. This research offers an innovative modified enhancement for distinguishing between synthetic and genuine images, deeply impactful as the growing field of Generative Al has increased capabilities of malicious fake news and video attempts.
+
+_Dataset Link_: https://www.kaggle.com/datasets/birdy654/cifake-real-and-ai-generated-synthetic-images
+
+
+--------
+By: Pranav Gupta
