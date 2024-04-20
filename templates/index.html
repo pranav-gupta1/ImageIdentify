@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image for Prediction</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+        body {
+            font-family: 'Verdana', sans-serif;
+            background-color: #e6f7ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: linear-gradient(145deg, #e6f7ff, #ace0f9);
+            padding: 20px;
+            border-radius: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .form-section {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            flex: 1;
+        }
+        .image-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+        }
+        .image-preview {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 15px;
+            border: 1px solid #ccc;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 0.5em;
+        }
+        .credit {
+            color: #666;
+            margin-bottom: 1em;
+        }
+        form {
+            width: 100%;
+        }
+        input[type=file] {
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        .file-name {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .prediction {
+            color: #333;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-section">
+            <h1>Upload Image for Prediction</h1>
+            <div class="credit">By: Pranav Gupta (for Demonstration) --> CNN/FFT</div>
+            <form action="/" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept="image/png, image/jpeg" id="fileInput">
+                <span class="file-name" id="fileName">No file chosen</span>
+                <input type="submit" value="Upload">
+            </form>
+            {% if prediction %}
+                <div class="prediction">Prediction: {{ prediction }}</div>
+            {% endif %}
+        </div>
+        <div class="image-section">
+            <img id="imagePreview" class="image-preview" style="display:none;" />
+        </div>
+    </div>
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const fileName = document.getElementById('fileName');
+        const imagePreview = document.getElementById('imagePreview');
+
+        fileInput.addEventListener('change', function() {
+            const file = fileInput.files[0];
+            const name = file ? file.name : 'No file chosen';
+            fileName.textContent = name;
+
+            if (file) {
+                imagePreview.style.display = 'block';
+                imagePreview.src = URL.createObjectURL(file);
+            } 
+            else
+                imagePreview.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

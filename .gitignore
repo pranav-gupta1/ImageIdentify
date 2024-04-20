@@ -1,0 +1,5 @@
+dataset/
+dataset1/
+dataset2/
+models/IIModelCNNOnly.h5
+models/IIModelCNNFFT.h5
