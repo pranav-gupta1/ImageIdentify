@@ -12,7 +12,7 @@ from tensorflow.keras.optimizers.legacy import Adam
 base_dir = '/Users/pranavgupta/Documents/Synopsys_2024/dataset'
 train_dir = os.path.join(base_dir, 'train')
 test_dir = os.path.join(base_dir, 'test')
-model_save_path = os.path.join(base_dir, 'IIModelCNNOnly.h5')
+model_save_path = '/Users/pranavgupta/Documents/Synopsys_2024/models/IIModelCNNOnly.h5'
 
 #parameters
 img_width, img_height = 128, 128
