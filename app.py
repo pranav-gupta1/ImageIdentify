@@ -15,7 +15,7 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 #load model
-model = tf.keras.models.load_model('/Users/pranavgupta/Documents/Synopsys_2024/dataset/IIModelCNNFFT.h5')  # Adjust the path to your model
+model = tf.keras.models.load_model('/Users/pranavgupta/Documents/Synopsys_2024/dataset/IIModelCNNFFT.h5')
 
 #check if the file is allowed based on its extension
 def allowed_file(filename):
