@@ -9,6 +9,7 @@ from tensorflow.keras.optimizers.legacy import Adam
 from tensorflow.keras.metrics import Precision, Recall
 import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing import image
+import coremltools
 
 #logging data during training to plot
 class LearningRateLogger(tf.keras.callbacks.Callback):
@@ -198,3 +199,9 @@ plt.xlabel('Epoch')
 plt.ylabel('Learning Rate')
 plt.grid(True)
 plt.show()
+
+#convert to CoreML formatting
+coreml_model = coremltools.convert(model, 
+                                 minimum_deployment_target=coremltools.target.iOS14,
+                                  convert_to='neuralnetwork')
+coreml_model.save('ImageDetector.mlmodel')
